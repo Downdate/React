@@ -1,19 +1,28 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
 
-const root = createRoot(document.getElementById('root'));
+const root = createRoot(document.getElementById("root"));
 
 function HomePage() {
   return (
     <div>
       <h1>Dorood bar shoma!</h1>
-      <div>Hello, World!</div>
+      <div>Welcome to the React world!</div>
+    </div>
+  );
+}
+
+function Footer() {
+  return (
+    <div>
+      <h3>This is the footer brought to you by Dan</h3>
     </div>
   );
 }
 
 root.render(
-  HomePage()
-)
-
-
+  <div>
+    <HomePage />
+    <Footer />
+  </div>,
+);
