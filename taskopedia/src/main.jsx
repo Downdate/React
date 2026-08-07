@@ -12,6 +12,14 @@ function HomePage() {
   );
 }
 
+function Header() {
+  return (
+    <div>
+      <h1>React Application Header</h1>
+    </div>
+  );
+}
+
 function Footer() {
   return (
     <div>
@@ -22,6 +30,7 @@ function Footer() {
 
 root.render(
   <div>
+    <Header />
     <HomePage />
     <Footer />
   </div>,
