@@ -1,6 +1,7 @@
 .customHeading {
   text-align: center;
-  background-color: lightgray;
+  background-color: rgba(4, 82, 199, 0.664);
   padding: 10px;
-  color: blue;
+  color: rgb(255, 217, 2);
+  border-bottom: 2px solid rgb(255, 251, 1);
 }
