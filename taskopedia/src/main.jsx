@@ -15,7 +15,7 @@ function HomePage() {
 function Header() {
   return (
     <div>
-      <h1>React Application Header</h1>
+      <h1 style={{ textAlign: "center" }}>React Application Header</h1>
     </div>
   );
 }
@@ -23,7 +23,9 @@ function Header() {
 function Footer() {
   return (
     <div>
-      <h3>This is the footer brought to you by Dan</h3>
+      <h3 style={{ textAlign: "center" }}>
+        This is the footer brought to you by Dan
+      </h3>
     </div>
   );
 }
