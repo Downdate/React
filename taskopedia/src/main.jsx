@@ -14,12 +14,15 @@ root.render(
   <div>
     <Header />
     <HomePage />
-    <Dweller dwellerName="Alice" role="Resident" />
-    <DwellerReview />
-    <Dweller dwellerName="Bob" role="Resident" />
-    <DwellerReview />
-    <Dweller dwellerName="Charlie" role="Guard" />
-    <DwellerReview />
+    <Dweller dwellerName="Alice" role="Resident">
+      <DwellerReview />
+    </Dweller>
+    <Dweller dwellerName="Bob" role="Resident">
+      <DwellerReview />
+    </Dweller>
+    <Dweller dwellerName="Charlie" role="Guard">
+      <DwellerReview />
+    </Dweller>
     <Footer />
   </div>,
 );

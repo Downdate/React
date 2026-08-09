@@ -20,6 +20,7 @@ function Dweller(props) {
           <br />
           Role: {role}
         </div>
+        <div>{props.children}</div>
       </div>
     </div>
   );
