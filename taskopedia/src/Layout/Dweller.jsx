@@ -1,6 +1,6 @@
-function Dweller() {
-  const dwellerName = "John Wick";
-  const role = "Overseer";
+function Dweller(props) {
+  const dwellerName = props.dwellerName || "John Wick";
+  const role = props.role || "Overseer";
 
   return (
     <div className="container p-4 bg-success my-4 text-white">
