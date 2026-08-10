@@ -62,31 +62,58 @@ function Counter() {
     setLDT(enemyDamageDone);
 
     setHpEnemy(function (prev) {
-      return prev - playerDamageDone;
+      if (prev - playerDamageDone <= 0) {
+        return 0;
+      } else {
+        return prev - playerDamageDone;
+      }
     });
     setHpPlayer(function (prev) {
-      return prev - enemyDamageDone;
+      if (prev - enemyDamageDone <= 0) {
+        return 0;
+      } else {
+        return prev - enemyDamageDone;
+      }
     });
+  }
+
+  function resetGame() {
+    setHpEnemy(100);
+    setHpPlayer(100);
+    setLDD(0);
+    setLDT(0);
+    setGameStatus("");
   }
 
   return (
     <div className="row text-white container">
       <h1>Game</h1>
-      <h3>
-        status: <p>{gameStatus}</p>
-      </h3>
+      {gameStatus.length > 0 && (
+        <h3>
+          status: <p>{gameStatus}</p>
+        </h3>
+      )}
       <h5>Enemy HP : {hpEnemy}</h5>
       <h5>Your HP : {hpPlayer}</h5>
       <h6>Your Damage : {playerDamage}</h6>
       <h6>Last Damage Dealt : {lastDamageDealt}</h6>
       <h6>Last Damage Taken : {lastDamageTaken}</h6>
 
-      <button className="btn btn-success m-2" onClick={() => heal()}>
-        Heal
-      </button>
-      <button className="btn btn-danger m-2" onClick={() => playerAttack()}>
-        Attack
-      </button>
+      {gameStatus.length == 0 && (
+        <button className="btn btn-success m-2" onClick={() => heal()}>
+          Heal
+        </button>
+      )}
+      {gameStatus.length == 0 && (
+        <button className="btn btn-danger m-2" onClick={() => playerAttack()}>
+          Attack
+        </button>
+      )}
+      {gameStatus.length > 0 && (
+        <button className="btn btn-danger m-2" onClick={() => resetGame()}>
+          Reset
+        </button>
+      )}
     </div>
   );
 }
