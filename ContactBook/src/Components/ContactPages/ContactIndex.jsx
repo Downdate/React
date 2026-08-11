@@ -1,5 +1,6 @@
 import { useState } from "react";
 import FavoriteContacts from "./FavoriteContacts";
+import GeneralContacts from "./GeneralContacts";
 
 function ContactIndex() {
   const [contactList, setContactList] = useState([
@@ -8,21 +9,21 @@ function ContactIndex() {
       name: "Daniel",
       phone: "666-666-6689",
       email: "dani@gmail.com",
-      usFavorite: true,
+      isFavorite: true,
     },
     {
       id: 3,
       name: "William",
       phone: "666-666-6489",
       email: "William@gmail.com",
-      usFavorite: false,
+      isFavorite: true,
     },
     {
       id: 3,
       name: "Ben",
       phone: "666-666-5589",
       email: "Ben@gmail.com",
-      usFavorite: false,
+      isFavorite: false,
     },
   ]);
 
@@ -38,7 +39,12 @@ function ContactIndex() {
         </div>
         <div className="py-2">
           <div className="com-12">
-            <FavoriteContacts />
+            <FavoriteContacts
+              contacts={contactList.filter((temp) => temp.isFavorite == true)}
+            />
+            <GeneralContacts
+              contacts={contactList.filter((temp) => temp.isFavorite == false)}
+            />
           </div>
         </div>
         <div className="py-2">
