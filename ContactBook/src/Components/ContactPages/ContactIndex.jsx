@@ -1,40 +1,52 @@
 import { useState } from "react";
+import FavoriteContacts from "./FavoriteContacts";
 
 function ContactIndex() {
+  const [contactList, setContactList] = useState([
+    {
+      id: 1,
+      name: "Daniel",
+      phone: "666-666-6689",
+      email: "dani@gmail.com",
+      usFavorite: true,
+    },
+    {
+      id: 3,
+      name: "William",
+      phone: "666-666-6489",
+      email: "William@gmail.com",
+      usFavorite: false,
+    },
+    {
+      id: 3,
+      name: "Ben",
+      phone: "666-666-5589",
+      email: "Ben@gmail.com",
+      usFavorite: false,
+    },
+  ]);
 
-    const [contactList, setContactList] = useState([
-        {
-            id: 1,
-            name: "Daniel",
-            phone: "666-666-6689",
-            email: "dani@gmail.com",
-            usFavorite: true,
-
-        },
-        {
-            id: 3,
-            name: "William",
-            phone: "666-666-6489",
-            email: "William@gmail.com",
-            usFavorite: false,
-
-        },
-        {
-            id: 3,
-            name: "Ben",
-            phone: "666-666-5589",
-            email: "Ben@gmail.com",
-            usFavorite: false,
-
-        },
-
-    ]);
-    
-    return ( 
-        <div>
-            Hello
+  return (
+    <div className="container" style={{ minHeight: "85vh" }}>
+      <div className="row py-3">
+        <div className="row py-2">
+          <div className="col-6">Add Contact</div>
+          <div className="col-6">Remove Contact</div>
         </div>
-     );
+        <div className="py-2">
+          <div className="com-12">Form to add new contact</div>
+        </div>
+        <div className="py-2">
+          <div className="com-12">
+            <FavoriteContacts />
+          </div>
+        </div>
+        <div className="py-2">
+          <div className="com-12">General Contacts</div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default ContactIndex;
