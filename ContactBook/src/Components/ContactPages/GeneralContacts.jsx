@@ -14,7 +14,11 @@ function GeneralContacts(props) {
       <div className="text-center text-white-50">General</div>
       <div className="p-2">
         {props.contacts.map((contact, index) => (
-          <Contact contact={contact} key={index}></Contact>
+          <Contact
+            favoriteclick={props.favoriteclick}
+            contact={contact}
+            key={index}
+          ></Contact>
         ))}
       </div>
     </div>

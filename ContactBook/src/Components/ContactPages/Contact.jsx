@@ -10,7 +10,7 @@ function Contact(props) {
         <img
           src={`https://api.dicebear.com/10.x/initials/svg?seed=${props.contact.name}`}
           alt="avatar"
-          style={{ width: "80%" }}
+          style={{ width: "80%", marginBottom: "10px" }}
         />
       </div>
       <div className="col-6 text-white pt-0">
@@ -23,7 +23,10 @@ function Contact(props) {
         </div>
       </div>
       <div className="col-2 pt-2">
-        <button className="btn btn-primary btn-sm m-1">
+        <button
+          onClick={() => props.favoriteclick(props.contact)}
+          className={`btn btn-sm m-1 ${props.contact.isFavorite ? "btn-warning" : "btn-outline-warning"}`}
+        >
           {props.contact.isFavorite ? (
             <i className="bi bi-star-fill"></i>
           ) : (

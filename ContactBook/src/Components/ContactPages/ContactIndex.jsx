@@ -12,7 +12,7 @@ function ContactIndex() {
       isFavorite: true,
     },
     {
-      id: 3,
+      id: 2,
       name: "William",
       phone: "666-666-6489",
       email: "William@gmail.com",
@@ -27,6 +27,20 @@ function ContactIndex() {
     },
   ]);
 
+  function toggleFavorite(contact) {
+    setContactList((prev) => {
+      return prev.map((obj) => {
+        if (obj.id == contact.id) {
+          return {
+            ...obj,
+            isFavorite: !obj.isFavorite,
+          };
+        }
+        return obj;
+      });
+    });
+  }
+
   return (
     <div className="container" style={{ minHeight: "85vh" }}>
       <div className="row py-3">
@@ -40,9 +54,11 @@ function ContactIndex() {
         <div className="py-2">
           <div className="com-12">
             <FavoriteContacts
+              favoriteclick={toggleFavorite}
               contacts={contactList.filter((temp) => temp.isFavorite == true)}
             />
             <GeneralContacts
+              favoriteclick={toggleFavorite}
               contacts={contactList.filter((temp) => temp.isFavorite == false)}
             />
           </div>
