@@ -24,7 +24,7 @@ function Contact(props) {
       </div>
       <div className="col-2 pt-2">
         <button
-          onClick={() => props.favoriteclick(props.contact)}
+          onClick={() => props.favoriteClick(props.contact)}
           className={`btn btn-sm m-1 ${props.contact.isFavorite ? "btn-warning" : "btn-outline-warning"}`}
         >
           {props.contact.isFavorite ? (
@@ -36,7 +36,10 @@ function Contact(props) {
         <button className="btn btn-info btn-sm m-1">
           <i className="bi bi-pencil-square"></i>
         </button>
-        <button className="btn btn-danger btn-sm m-1">
+        <button
+          onClick={() => props.deleteClick(props.contact)}
+          className="btn btn-danger btn-sm m-1"
+        >
           <i className="bi bi-trash"></i>
         </button>
       </div>

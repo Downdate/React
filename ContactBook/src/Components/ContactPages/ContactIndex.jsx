@@ -27,7 +27,7 @@ function ContactIndex() {
     },
   ]);
 
-  function toggleFavorite(contact) {
+  function toggleFavoriteHandler(contact) {
     setContactList((prev) => {
       return prev.map((obj) => {
         if (obj.id == contact.id) {
@@ -38,6 +38,12 @@ function ContactIndex() {
         }
         return obj;
       });
+    });
+  }
+
+  function deleteContactHandler(contact) {
+    setContactList((prev) => {
+      return prev.filter((temp) => temp.id != contact.id);
     });
   }
 
@@ -54,11 +60,13 @@ function ContactIndex() {
         <div className="py-2">
           <div className="com-12">
             <FavoriteContacts
-              favoriteclick={toggleFavorite}
+              deleteClick={deleteContactHandler}
+              favoriteClick={toggleFavoriteHandler}
               contacts={contactList.filter((temp) => temp.isFavorite == true)}
             />
             <GeneralContacts
-              favoriteclick={toggleFavorite}
+              deleteClick={deleteContactHandler}
+              favoriteClick={toggleFavoriteHandler}
               contacts={contactList.filter((temp) => temp.isFavorite == false)}
             />
           </div>
