@@ -1,17 +1,28 @@
 function AddContact() {
+  function handleAddContactForm(e) {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const contactData = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+    };
+    console.log(contactData);
+  }
+
   return (
     <div className="border col-12 text-white p-2">
-      <form action="">
+      <form onSubmit={handleAddContactForm}>
         <div className="row p-2">
           <div className="col-12 text-white-50">Add Contact</div>
           <div className="col-12 col-md-4 p-1">
-            <input placeholder="Name..." type="text" />
+            <input name="name" placeholder="Name..." type="text" />
           </div>
           <div className="col-12 col-md-4 p-1">
-            <input placeholder="Email..." type="email" />
+            <input name="email" placeholder="Email..." type="email" />
           </div>
           <div className="col-12 col-md-4 p-1">
-            <input placeholder="phone..." type="phoneNumber" />
+            <input name="phone" placeholder="phone..." type="tel" />
           </div>
           <div className="col-12 text-center text-success">Success Message</div>
           <div className="col-12 text-center text-danger">Error Message</div>
