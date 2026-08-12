@@ -3,7 +3,6 @@ import FavoriteContacts from "./FavoriteContacts";
 import GeneralContacts from "./GeneralContacts";
 import AddContact from "./AddContact";
 
-
 function ContactIndex() {
   const [contactList, setContactList] = useState([
     {
@@ -43,6 +42,17 @@ function ContactIndex() {
     });
   }
 
+  function handleAddContact(newContact) {
+    const newFinalContact = {
+      ...newContact,
+      id: contactList[contactList.length - 1].id + 1,
+      isFavorite: false,
+    };
+    setContactList((prev) => {
+      return prev.concat([newFinalContact]);
+    });
+  }
+
   function deleteContactHandler(contact) {
     setContactList((prev) => {
       return prev.filter((temp) => temp.id != contact.id);
@@ -58,7 +68,7 @@ function ContactIndex() {
         </div>
         <div className="py-2">
           <div className="com-12">
-            <AddContact />
+            <AddContact handleAddContact={handleAddContact} />
           </div>
         </div>
         <div className="py-2">
