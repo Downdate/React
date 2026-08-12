@@ -43,6 +43,14 @@ function ContactIndex() {
   }
 
   function handleAddContact(newContact) {
+    if (
+      newContact.name == "" ||
+      newContact.email == "" ||
+      newContact.phone == ""
+    ) {
+      return { status: "error", msg: "inputs can't be blank!" };
+    }
+
     const newFinalContact = {
       ...newContact,
       id: contactList[contactList.length - 1].id + 1,
@@ -51,6 +59,8 @@ function ContactIndex() {
     setContactList((prev) => {
       return prev.concat([newFinalContact]);
     });
+
+    return { status: "success", msg: "Contact was added successfully!" };
   }
 
   function deleteContactHandler(contact) {

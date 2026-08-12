@@ -15,7 +15,19 @@ function AddContact(props) {
 
     try {
       console.log(contactData);
-      props.handleAddContact(contactData);
+      const response = props.handleAddContact(contactData);
+
+      if (response.status == "success") {
+        setMessages({
+          errorMessage: undefined,
+          successMessage: response.msg,
+        });
+      } else {
+        setMessages({
+          errorMessage: response.msg,
+          successMessage: undefined,
+        });
+      }
     } catch (error) {
       console.error("error during adding contact!", error);
     }
@@ -36,12 +48,14 @@ function AddContact(props) {
             <input name="phone" placeholder="phone..." type="tel" />
           </div>
           {messages.successMessage && (
-            <div className="col-12 text-center text-success">
-              Success Message
+            <div className="col-12 text-center bg-success">
+              {messages.successMessage}
             </div>
           )}
           {messages.errorMessage && (
-            <div className="col-12 text-center text-danger">Error Message</div>
+            <div className="col-12 text-center bg-danger ">
+              {messages.errorMessage}
+            </div>
           )}
           <div className="col-6">
             <button className="btn btn-primary btn-sm form-control">
