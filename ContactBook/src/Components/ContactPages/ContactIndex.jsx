@@ -50,12 +50,23 @@ function ContactIndex() {
     ) {
       return { status: "error", msg: "inputs can't be blank!" };
     }
+    if (
+      contactList.some(
+        (element) =>
+          element.name == newContact.name &&
+          element.email == newContact.email &&
+          element.phone == newContact.phone,
+      )
+    ) {
+      return { status: "error", msg: "Contact is duplicate!" };
+    }
 
     const newFinalContact = {
       ...newContact,
-      id: contactList[contactList.length - 1].id + 1,
+      id: Date.now(),
       isFavorite: false,
     };
+
     setContactList((prev) => {
       return prev.concat([newFinalContact]);
     });
@@ -69,12 +80,23 @@ function ContactIndex() {
     });
   }
 
+  function handleRemoveAll() {
+    setContactList([]);
+  }
+
   return (
     <div className="container" style={{ minHeight: "85vh" }}>
       <div className="row py-3">
         <div className="row py-2">
           <div className="col-6">Add Contact</div>
-          <div className="col-6">Remove Contact</div>
+          <div className="col-6">
+            <button
+              onClick={handleRemoveAll}
+              className="btn btn-danger form-control"
+            >
+              Remove All
+            </button>
+          </div>
         </div>
         <div className="py-2">
           <div className="com-12">
