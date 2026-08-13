@@ -33,7 +33,10 @@ function Contact(props) {
             <i className="bi bi-star"></i>
           )}
         </button>
-        <button className="btn btn-info btn-sm m-1">
+        <button
+          onClick={() => props.updateClick(props.contact)}
+          className="btn btn-info btn-sm m-1"
+        >
           <i className="bi bi-pencil-square"></i>
         </button>
         <button

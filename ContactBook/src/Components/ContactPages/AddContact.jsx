@@ -47,12 +47,15 @@ function AddContact(props) {
   }
 
   return (
-    <div className="border col-12 text-white p-2">
+    <div className="border col-12 text-white p-2 align-center">
       <form action={handleAddContactForm}>
         <div className="row p-2">
-          <div className="col-12 text-white-50">Add Contact</div>
-          <div className="col-12 col-md-4 p-1">
+          <div className="col-12 text-white-50">
+            {props.isUpdating ? "Update Contact" : "Add Contact"}
+          </div>
+          <div className="col-12 col-md-4 p-1 ">
             <input
+              className="w-100"
               name="name"
               placeholder="Name..."
               type="text"
@@ -62,6 +65,7 @@ function AddContact(props) {
           </div>
           <div className="col-12 col-md-4 p-1">
             <input
+              className="w-100"
               name="email"
               placeholder="Email..."
               type="email"
@@ -71,6 +75,7 @@ function AddContact(props) {
           </div>
           <div className="col-12 col-md-4 p-1">
             <input
+              className="w-100"
               name="phone"
               placeholder="phone..."
               type="tel"
@@ -88,9 +93,9 @@ function AddContact(props) {
               {messages.errorMessage}
             </div>
           )}
-          <div className="col-6">
-            <button className="btn btn-primary btn-sm form-control">
-              Create
+          <div className="col-6 w-100 mt-2">
+            <button className="btn btn-primary btn-sm form-control w-100">
+              {props.isUpdating ? "Update" : "Create"}
             </button>
           </div>
         </div>
