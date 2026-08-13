@@ -37,6 +37,10 @@ function ContactIndex() {
     SetIsUpdating(true);
   }
 
+  function handleCancelClick() {
+    SetIsUpdating(false);
+  }
+
   function toggleFavoriteHandler(contact) {
     SetContactList((prev) => {
       return prev.map((obj) => {
@@ -111,6 +115,8 @@ function ContactIndex() {
           <div className="com-12">
             <AddContact
               handleAddContact={handleAddContact}
+              handleCancelClick={handleCancelClick}
+              selectedContact={selectedContact}
               isUpdating={isUpdating}
             />
           </div>

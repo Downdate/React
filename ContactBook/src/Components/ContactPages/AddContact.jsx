@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function AddContact(props) {
   const [messages, setMessages] = useState({
@@ -11,6 +11,22 @@ function AddContact(props) {
     email: "",
     phone: "",
   });
+
+  useEffect(() => {
+    if (props.isUpdating && props.selectedContact) {
+      setFormData({
+        name: props.selectedContact.name,
+        email: props.selectedContact.email,
+        phone: props.selectedContact.phone,
+      });
+    } else {
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+      });
+    }
+  }, [props.isUpdating, props.selectedContact]);
 
   function handleAddContactForm(formData) {
     const contactData = {
@@ -43,6 +59,13 @@ function AddContact(props) {
     setFormData({
       ...formData,
       [input.target.name]: input.target.value,
+    });
+  }
+  function handleClearFields() {
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
     });
   }
 
@@ -93,11 +116,21 @@ function AddContact(props) {
               {messages.errorMessage}
             </div>
           )}
-          <div className="col-6 w-100 mt-2">
-            <button className="btn btn-primary btn-sm form-control w-100">
+          <div className={`${props.isUpdating ? "col-6 mt-2" : "col-12 mt-2"}`}>
+            <button className="btn btn-primary btn-sm form-control w-100 ">
               {props.isUpdating ? "Update" : "Create"}
             </button>
           </div>
+          {props.isUpdating && (
+            <div className="col-6 mt-2">
+              <button
+                onClick={props.handleCancelClick}
+                className="btn btn-danger btn-sm w-100 "
+              >
+                Cancel
+              </button>
+            </div>
+          )}
         </div>
       </form>
     </div>
