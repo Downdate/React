@@ -4,7 +4,7 @@ import GeneralContacts from "./GeneralContacts";
 import AddContact from "./AddContact";
 
 function ContactIndex() {
-  const [contactList, SetContactList] = useState([
+  const [contactList, setContactList] = useState([
     {
       id: 1,
       name: "Daniel",
@@ -28,21 +28,21 @@ function ContactIndex() {
     },
   ]);
 
-  const [selectedContact, SetSelectedContact] = useState(null);
-  const [isUpdating, SetIsUpdating] = useState(false);
+  const [selectedContact, setSelectedContact] = useState(null);
+  const [isUpdating, setIsUpdating] = useState(false);
 
   function handleUpdateClick(contact) {
     console.log(contact);
-    SetSelectedContact(contact);
-    SetIsUpdating(true);
+    setSelectedContact(contact);
+    setIsUpdating(true);
   }
 
   function handleCancelClick() {
-    SetIsUpdating(false);
+    setIsUpdating(false);
   }
 
   function toggleFavoriteHandler(contact) {
-    SetContactList((prev) => {
+    setContactList((prev) => {
       return prev.map((obj) => {
         if (obj.id == contact.id) {
           return {
@@ -80,7 +80,7 @@ function ContactIndex() {
       isFavorite: false,
     };
 
-    SetContactList((prev) => {
+    setContactList((prev) => {
       return prev.concat([newFinalContact]);
     });
 
@@ -88,13 +88,13 @@ function ContactIndex() {
   }
 
   function deleteContactHandler(contact) {
-    SetContactList((prev) => {
+    setContactList((prev) => {
       return prev.filter((temp) => temp.id != contact.id);
     });
   }
 
   function handleRemoveAll() {
-    SetContactList([]);
+    setContactList([]);
   }
 
   function handleUpdateContact(contact) {
@@ -112,7 +112,7 @@ function ContactIndex() {
       };
     }
 
-    SetContactList((prev) => {
+    setContactList((prev) => {
       return prev.map((obj) => {
         if (obj.id == contact.id) {
           return {
@@ -133,8 +133,8 @@ function ContactIndex() {
       });
     });
 
-    SetSelectedContact(null);
-    SetIsUpdating(true);
+    setSelectedContact(null);
+    setIsUpdating(true);
 
     return { status: "success", msg: "Contact was updated successfully!" };
   }
