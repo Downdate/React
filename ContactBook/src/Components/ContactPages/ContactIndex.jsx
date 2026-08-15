@@ -98,9 +98,30 @@ function ContactIndex() {
   }
 
   function handleUpdateContact(contact) {
+    const existingContact = contactList.find((obj) => obj.id === contact.id);
+
+    // Check if anything actually changed
+    if (
+      existingContact.name === contact.name &&
+      existingContact.email === contact.email &&
+      existingContact.phone === contact.phone
+    ) {
+      return {
+        status: "error",
+        msg: "There were no changes. The contact is the same as before!",
+      };
+    }
+
     SetContactList((prev) => {
       return prev.map((obj) => {
         if (obj.id == contact.id) {
+          return {
+            ...obj,
+            name: contact.name,
+            email: contact.email,
+            phone: contact.phone,
+          };
+
           return {
             ...obj,
             name: contact.name,
@@ -139,7 +160,7 @@ function ContactIndex() {
               handleCancelClick={handleCancelClick}
               selectedContact={selectedContact}
               isUpdating={isUpdating}
-              handleUpdateContact = {handleUpdateContact}
+              handleUpdateContact={handleUpdateContact}
             />
           </div>
         </div>

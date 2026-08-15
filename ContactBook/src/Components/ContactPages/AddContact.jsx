@@ -37,7 +37,7 @@ function AddContact(props) {
 
     try {
       console.log(contactData);
-      const response = undefined;
+      let response = undefined;
 
       //check if the action is to update the contact
       if (props.isUpdating && props.selectedContact) {
