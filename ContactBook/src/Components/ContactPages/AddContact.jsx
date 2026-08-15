@@ -37,7 +37,19 @@ function AddContact(props) {
 
     try {
       console.log(contactData);
-      const response = props.handleAddContact(contactData);
+      const response = undefined;
+
+      //check if the action is to update the contact
+      if (props.isUpdating && props.selectedContact) {
+        //update
+        response = props.handleUpdateContact({
+          id: props.selectedContact.id,
+          isFavorite: props.selectedContact.isFavorite,
+          ...contactData,
+        });
+      } else {
+        props.handleAddContact(contactData);
+      }
 
       if (response.status == "success") {
         setMessages({

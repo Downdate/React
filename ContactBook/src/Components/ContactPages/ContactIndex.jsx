@@ -97,6 +97,27 @@ function ContactIndex() {
     SetContactList([]);
   }
 
+  function handleUpdateContact(contact) {
+    SetContactList((prev) => {
+      return prev.map((obj) => {
+        if (obj.id == contact.id) {
+          return {
+            ...obj,
+            name: contact.name,
+            email: contact.email,
+            phone: contact.phone,
+          };
+        }
+        return obj;
+      });
+    });
+
+    SetSelectedContact(null);
+    SetIsUpdating(true);
+
+    return { status: "success", msg: "Contact was updated successfully!" };
+  }
+
   return (
     <div className="container" style={{ minHeight: "85vh" }}>
       <div className="row py-3">
@@ -118,6 +139,7 @@ function ContactIndex() {
               handleCancelClick={handleCancelClick}
               selectedContact={selectedContact}
               isUpdating={isUpdating}
+              handleUpdateContact = {handleUpdateContact}
             />
           </div>
         </div>
