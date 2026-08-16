@@ -5,9 +5,9 @@ function addRandomContact(props) {
     const user = await getRandomUser();
     console.log(user);
     return {
-      name: user.results[0].name.first,
-      email: user.results[0].email,
-      phone: user.results[0].cell,
+      name: user.data.results[0].name.first,
+      email: user.data.results[0].email,
+      phone: user.data.results[0].cell,
     };
   };
 
