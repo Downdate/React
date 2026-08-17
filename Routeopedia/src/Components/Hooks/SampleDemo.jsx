@@ -1,9 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import LifeCycleDemo from "./LifeCycleDemo";
 
 function SampleDemo() {
   const [counter, setCounter] = useState(0);
   const [showComponent, setShowComponent] = useState(true);
+  const isFirstRender = useRef(true);
+
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    console.log(" Main counter updated - main Counter: ", counter);
+  }, [counter]);
 
   return (
     <div style={{ padding: "1rem" }}>
