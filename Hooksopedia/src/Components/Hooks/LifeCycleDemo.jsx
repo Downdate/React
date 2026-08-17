@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 function LifeCycleDemo() {
   const [childCounter, setChildCounter] = useState(0);
   const isFirstRender = useRef(true);
+  const prevCount = useRef();
 
   useEffect(() => {
     console.log(" ✅ Component Mount");
@@ -18,11 +19,15 @@ function LifeCycleDemo() {
       return;
     }
     console.log(" Child counter updated - Child Counter: ", childCounter);
+
+    prevCount.current = childCounter;
   }, [childCounter]);
 
   return (
     <div>
-      <p>Counter : {childCounter}</p>
+      <p>
+        Counter : {childCounter} -- previous counter: {prevCount.current}
+      </p>
 
       <button
         onClick={() => {
