@@ -21,13 +21,13 @@ function MainLayout() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav d-flex">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+              <a className="nav-link active" aria-current="page" href="/">
                 Home
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Features
+              <a className="nav-link" href="/Contact">
+                Contact
               </a>
             </li>
             <li className="nav-item flex-grow-1">
