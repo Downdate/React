@@ -10,7 +10,7 @@ function App() {
     <div className="d-flex flex-column min-vh-100">
       <MainLayout />
       <main className="container flex-grow-1 d-flex flex-column">
-        <AppRouter/>
+        <AppRouter />
       </main>
       <footer
         className="mt-auto py-3 border-top text-center text-muted"
