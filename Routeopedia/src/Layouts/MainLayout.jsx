@@ -5,9 +5,9 @@ function MainLayout() {
   return (
     <nav className="navbar navbar-expand-sm bg-body-tertiary">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
+        <Link className="navbar-brand" to="/">
           <img src={reactLogo} alt="" />
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
