@@ -36,6 +36,11 @@ function MainLayout() {
                 Pricing
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/products">
+                products
+              </NavLink>
+            </li>
           </ul>
           <div className="ms-auto p-2">
             <form className="d-flex" role="search">
