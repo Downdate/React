@@ -18,7 +18,10 @@ function productList() {
               <h4>{product.name}</h4>
               <p>price: ${product.price}</p>
               <p>category: {product.category}</p>
-              <Link className="btn btn-outline-success" to={"/"}>
+              <Link
+                className="btn btn-outline-success"
+                to={`/products/item/${product.id}`}
+              >
                 {" "}
                 View Details
               </Link>
