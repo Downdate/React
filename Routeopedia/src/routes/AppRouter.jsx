@@ -4,13 +4,23 @@ import Contact from "../Pages/Contact";
 import ProductList from "../Pages/Product/ProductList";
 import NotFound from "../Pages/NotFound";
 import ProductDetail from "../Pages/Product/ProductDetail";
+import ProductLayout from "../Layouts/ProductLayout";
+import AllProducts from "../Pages/Product/ProductCategory/AllProducts";
+import Electronics from "../Pages/Product/ProductCategory/Electronics";
+import Books from "../Pages/Product/ProductCategory/Books";
+import Clothing from "../Pages/Product/ProductCategory/Clothing";
 
 function AppRouter() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/Contact" element={<Contact />} />
-      <Route path="/products" element={<ProductList />} />
+      <Route path="/products" element={<ProductLayout />}>
+        <Route index element={<AllProducts />} />
+        <Route path="electronics" element={<Electronics />} />
+        <Route path="books" element={<Books />} />
+        <Route path="clothing" element={<Clothing />} />
+      </Route>
       <Route path="/products/item/:id" element={<ProductDetail />} />
 
       <Route path="*" element={<NotFound />} />
