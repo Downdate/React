@@ -1,7 +1,10 @@
 import reactLogo from "../assets/react.svg";
 import { Link, NavLink } from "react-router-dom";
+import { getAuthState } from "../Utility/AuthUtility";
 
 function MainLayout() {
+  const authState = getAuthState();
+
   return (
     <nav className="navbar navbar-expand-sm bg-body-tertiary">
       <div className="container-fluid">
@@ -41,19 +44,23 @@ function MainLayout() {
                 products
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/admin">
+                Admin
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/customer">
+                Customer
+              </NavLink>
+            </li>
           </ul>
           <div className="ms-auto p-2">
-            <form className="d-flex" role="search">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button className="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
+            <div className="d-flex align-items-center gap-2">
+              <NavLink className="btn btn-primary" to="/login">
+                Login
+              </NavLink>
+            </div>
           </div>
         </div>
       </div>
