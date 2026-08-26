@@ -28,7 +28,7 @@ function RoleBasedRoute({ children, allowedRoles }) {
 
         <button
           onClick={() => {
-            window.history.back;
+            window.history.back();
           }}
           className="btn btn-outline-danger"
         >
