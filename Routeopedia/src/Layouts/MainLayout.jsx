@@ -44,16 +44,20 @@ function MainLayout() {
                 products
               </NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/admin">
-                Admin
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/customer">
-                Customer
-              </NavLink>
-            </li>
+            {currentUser?.role == "admin" && (
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/admin">
+                  Admin
+                </NavLink>
+              </li>
+            )}
+            {isAuthenticated && (
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/customer">
+                  Customer
+                </NavLink>
+              </li>
+            )}
           </ul>
           <div className="ms-auto p-2">
             <div className="d-flex align-items-center gap-2">
