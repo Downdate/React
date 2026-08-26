@@ -1,9 +1,14 @@
 import reactLogo from "../assets/react.svg";
-import { Link, NavLink } from "react-router-dom";
-import { getAuthState } from "../Utility/AuthUtility";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { getAuthState, setAuthState } from "../Utility/AuthUtility";
 
 function MainLayout() {
-  const authState = getAuthState();
+  const { isAuthenticated, currentUser } = getAuthState();
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    setAuthState(false);
+    navigate("/login");
+  };
 
   return (
     <nav className="navbar navbar-expand-sm bg-body-tertiary">
@@ -57,9 +62,19 @@ function MainLayout() {
           </ul>
           <div className="ms-auto p-2">
             <div className="d-flex align-items-center gap-2">
-              <NavLink className="btn btn-primary" to="/login">
-                Login
-              </NavLink>
+              {isAuthenticated ? (
+                <button
+                  onClick={handleLogout}
+                  className="btn btn-outline-danger"
+                  to="/logout"
+                >
+                  Logout
+                </button>
+              ) : (
+                <NavLink className="btn btn-primary" to="/login">
+                  Login
+                </NavLink>
+              )}
             </div>
           </div>
         </div>
