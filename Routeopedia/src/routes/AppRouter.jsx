@@ -12,14 +12,29 @@ import Clothing from "../Pages/Product/ProductCategory/Clothing";
 import Login from "../Pages/Auth/Login";
 import AdminPortal from "../Pages/Admin/AdminPortal";
 import CustomerPortal from "../Pages/Customer/CustomerPortal";
+import ProtectedRoute from "./ProtectedRoute";
 
 function AppRouter() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/Contact" element={<Contact />} />
-      <Route path="/admin" element={<AdminPortal />} />
-      <Route path="/customer" element={<CustomerPortal />} />
+      <Route
+        path="/admin"
+        element={
+          <ProtectedRoute>
+            <AdminPortal />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/customer"
+        element={
+          <ProtectedRoute>
+            <CustomerPortal />
+          </ProtectedRoute>
+        }
+      />
       <Route path="/login" element={<Login />} />
       <Route path="/products" element={<ProductLayout />}>
         <Route index element={<AllProducts />} />
