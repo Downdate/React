@@ -23,17 +23,21 @@ function AppRouter() {
       <Route
         path="/admin"
         element={
-          <RoleBasedRoute allowedRoles={["admin"]}>
-            <AdminPortal />
-          </RoleBasedRoute>
+          <ProtectedRoute>
+            <RoleBasedRoute allowedRoles={["admin"]}>
+              <AdminPortal />
+            </RoleBasedRoute>
+          </ProtectedRoute>
         }
       />
       <Route
         path="/customer"
         element={
-          <RoleBasedRoute allowedRoles={["admin", "customer"]}>
-            <CustomerPortal />
-          </RoleBasedRoute>
+          <ProtectedRoute>
+            <RoleBasedRoute allowedRoles={["admin", "customer"]}>
+              <CustomerPortal />
+            </RoleBasedRoute>
+          </ProtectedRoute>
         }
       />
       <Route path="/login" element={<Login />} />
