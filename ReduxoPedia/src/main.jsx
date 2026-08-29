@@ -5,8 +5,12 @@ import Footer from "../src/Layouts/Footer";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Header />
+    <div className="d-flex flex-column min-vh-100">
+      <Header />
 
-    <Footer />
+      <main className="flex-grow-1">Main content</main>
+
+      <Footer />
+    </div>
   </StrictMode>,
 );

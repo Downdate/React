@@ -15,7 +15,9 @@ function Header() {
         alt="Logo"
         style={{ height: "35px", verticalAlign: "top", marginRight: "15px" }}
       />
-      <span>Contact Book</span>
+      <span>
+        <strong>ReduxoPedia</strong>
+      </span>
     </div>
   );
 }
