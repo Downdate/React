@@ -1,10 +1,14 @@
+import { getAuthState } from "../Utility/AuthUtility";
+
 function Home() {
+  const { isAuthenticated, currentUser } = getAuthState();
+
   return (
     <div>
       <h1 style={{ textAlign: "center" }}>
         <i className="fas fa-house"></i>Home Page
       </h1>
-      <div className="card container" style={{ width: "70vw"}}>
+      <div className="card container" style={{ width: "70vw" }}>
         <img
           src="https://mdbcdn.b-cdn.net/img/new/standard/nature/182.webp"
           className="card-img-top"
@@ -12,8 +16,14 @@ function Home() {
         />
         <div className="card-body">
           <p className="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+            <span>
+              Welcome back, <strong>{currentUser.name}</strong>
+            </span>
+            <br />
+            <span className="small">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </span>
           </p>
         </div>
       </div>

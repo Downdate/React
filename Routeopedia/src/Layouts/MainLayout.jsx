@@ -62,13 +62,20 @@ function MainLayout() {
           <div className="ms-auto p-2">
             <div className="d-flex align-items-center gap-2">
               {isAuthenticated ? (
-                <button
-                  onClick={handleLogout}
-                  className="btn btn-outline-danger"
-                  to="/logout"
-                >
-                  Logout
-                </button>
+                <>
+                  <span className="me-2 text-secondary small align-items-center">
+                    <i className="bi bi-person-circle me-1"></i>
+
+                    {currentUser.name}
+                  </span>
+                  <button
+                    onClick={handleLogout}
+                    className="btn btn-outline-danger m-2"
+                    to="/logout"
+                  >
+                    Logout
+                  </button>
+                </>
               ) : (
                 <NavLink className="btn btn-primary" to="/login">
                   Login
