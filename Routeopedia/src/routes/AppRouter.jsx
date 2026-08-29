@@ -4,7 +4,7 @@ import Contact from "../Pages/Contact";
 import ProductList from "../Pages/Product/ProductList";
 import NotFound from "../Pages/NotFound";
 import ProductDetail from "../Pages/Product/ProductDetail";
-import ProductLayout from "../Layouts/ProductLayout";
+import ProductLayout from "../../../ReduxoPedia/src/Layouts/ProductLayout";
 import AllProducts from "../Pages/Product/ProductCategory/AllProducts";
 import Electronics from "../Pages/Product/ProductCategory/Electronics";
 import Books from "../Pages/Product/ProductCategory/Books";

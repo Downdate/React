@@ -2,7 +2,7 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "./assets/vite.svg";
 import heroImg from "./assets/hero.png";
-import MainLayout from "./Layouts/MainLayout";
+import MainLayout from "../../ReduxoPedia/src/Layouts/MainLayout";
 import AppRouter from "./routes/AppRouter";
 
 function App() {
