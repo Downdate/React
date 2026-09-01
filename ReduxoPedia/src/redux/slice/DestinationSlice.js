@@ -36,5 +36,5 @@ const destinationSlice = createSlice({
   },
 });
 
-export const destinationReducer = destinationSlice.reducer;
+export const destinationReducer = destinationSlice.reducer;                 
 export const { destinationClicked } = destinationSlice.actions;

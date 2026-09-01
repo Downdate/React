@@ -1,6 +1,8 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { destinationClicked } from "../redux/slice/DestinationSlice";
 
 function DestinationList() {
+  const dispatch = useDispatch();
   const destinationList = useSelector(
     (store) => store.destinationStore.destinations,
   );
@@ -11,7 +13,12 @@ function DestinationList() {
         <div className="col-8 pt-2">{destination.name}</div>
 
         <div className="col-4">
-          <button className="btn btn-success form-control">Details</button>
+          <button
+            className="btn btn-success form-control"
+            onClick={() => dispatch(destinationClicked(destination))}
+          >
+            Details
+          </button>
         </div>
       </div>
     );
