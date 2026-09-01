@@ -1,13 +1,11 @@
 import { useDispatch } from "react-redux";
-import { counterReset } from "../redux/slice/counterSlice";
-import { destinationReset } from "../redux/slice/DestinationSlice";
+import { resetReduxOPedia } from "../redux/action/actions";
 
 function ResetApp() {
   const dispatch = useDispatch();
 
   function handleResetClick() {
-    dispatch(counterReset());
-    dispatch(destinationReset());
+    dispatch(resetReduxOPedia());
   }
 
   return (

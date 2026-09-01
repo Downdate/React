@@ -28,9 +28,6 @@ const destinationSlice = createSlice({
     destinationClicked: (state, action) => {
       state.destinationSelected = action.payload;
     },
-    destinationReset: (state) => {
-      state.destinationSelected = null;
-    },
   },
   extraReducers: (builder) => {
     builder.addCase(resetReduxOPedia, (state, action) => {
@@ -40,5 +37,4 @@ const destinationSlice = createSlice({
 });
 
 export const destinationReducer = destinationSlice.reducer;
-export const { destinationClicked, destinationReset } =
-  destinationSlice.actions;
+export const { destinationClicked } = destinationSlice.actions;
