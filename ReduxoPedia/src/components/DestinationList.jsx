@@ -1,6 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
 import { destinationClicked } from "../redux/slice/DestinationSlice";
-import DestinationFact from "./DestinationFact";
 
 function DestinationList() {
   const dispatch = useDispatch();

@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 import Counter from "./components/Counter";
 import DestinationList from "./components/DestinationList";
 import DestinationFact from "./components/DestinationFact";
+import ResetApp from "./components/ResetApp";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -15,6 +16,7 @@ createRoot(document.getElementById("root")).render(
         <Header />
 
         <main className="flex-grow-1 row">
+          <ResetApp />
           <div className="col-12">
             <Counter />
             <div className="p-3 m-4 border">

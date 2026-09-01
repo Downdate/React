@@ -5,7 +5,7 @@ import {
   decreament,
   decreamentMultiplied,
   increamentMultiplied,
-} from "../redux/slice/CounterSlice";
+} from "../redux/slice/counterSlice";
 
 function Counter() {
   const count = useSelector((state) => state.counterStore.count);
